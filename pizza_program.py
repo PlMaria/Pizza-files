@@ -46,32 +46,29 @@ def pizza():
     print("Заказ: ")
     pprint.pprint(D)
     pprint.pprint(L)
-    
 
-    price=[]
-    for i in range(len(L)):
-	price.append(L[i]['pizza_order']['Price'])
-    summary=sum(price)
-    print('''
-*** Итог:  ''',summary)
+    p=[]
+    for i in L:
+        k=i['pizza_order']['Price']
+        p.append(k)
+    summary=sum(p)
+
+    print('''Итог:  ''',summary)
 
     if len(L)==3:
-        minim=min(price)
-        index=price.index(min(price))     
-        print('''
-*** Пицца ''', list(P.keys())[index],''' с наименьшей стоимостью:''',minim, "руб."
-              )
-        print('''
-*** Убрали стоимость пиццы ''', list(P.keys())[index],''' из заказа'''
-              )
-
-    if D['date']=='завтра':
+        minim=min(p)
+        index=p.index(min(p))     
+        print('''Пицца ''', list(P.keys())[index],''' с наименьшей стоимостью:''',minim, "руб.")
+        print('''Убрали стоимость пиццы ''', list(P.keys())[index],''' из заказа''')
         summary=summary-minim
+        print('''Итог:  ''',summary)
+
+    if list(D['date'])[0]=='завтра':
+        
         sale=summary*0.05
-        print('''
-Скидка 5%: ''',sale)
-        print('''
-Итог c учетом скидки: ''', (summary-sale))
+        print('''Скидка 5%: ''',sale)
+        print('''Итог c учетом скидки: ''', (summary-sale))
+        
 
     return "Заказ принят"
 
