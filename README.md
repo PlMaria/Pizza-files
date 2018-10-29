@@ -1,6 +1,6 @@
 # Pizza-files
 pizza_window - программа с оконным интерфейсом
-/n
+"/n"
 pizza_programm - программа со словарями
-/n
+"/n"
 pizza_log - программа со списками
